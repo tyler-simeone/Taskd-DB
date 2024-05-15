@@ -1,0 +1,15 @@
+USE `ProjectB`;
+CREATE TABLE `Board` (
+  `BoardId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `UserId` INT NOT NULL,
+  `BoardName` VARCHAR(150) NOT NULL,
+  `BoardDescription` VARCHAR(500) DEFAULT NULL,
+  `CreateDatetime` TIMESTAMP NULL DEFAULT NULL,
+  `CreateUserId` INT DEFAULT NULL,
+  `UpdateDatetime` TIMESTAMP NULL DEFAULT NULL,
+  `UpdateUserId` INT DEFAULT NULL,
+  `IsDeleted` INT NOT NULL DEFAULT '0',
+  CONSTRAINT fk_Board_User_UserId
+    FOREIGN KEY (UserId)
+    REFERENCES User(UserId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

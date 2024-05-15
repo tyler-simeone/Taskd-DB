@@ -1,14 +1,11 @@
+USE `ProjectB`;
 CREATE TABLE `Feature` (
   `FeatureId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `RoleId` INT,
   `FeatureName` VARCHAR(150) NOT NULL,
   `FeatureDescription` VARCHAR(500) DEFAULT NULL,
   `CreateDatetime` TIMESTAMP NULL DEFAULT NULL,
   `CreateUserId` INT DEFAULT NULL,
   `UpdateDatetime` TIMESTAMP NULL DEFAULT NULL,
   `UpdateUserId` INT DEFAULT NULL,
-  `IsDeleted` INT NOT NULL DEFAULT '0', 
-  CONSTRAINT fk_Feature_Role_RoleId
-    FOREIGN KEY (RoleId)
-    REFERENCES Roles(RoleId)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `IsDeleted` INT NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
