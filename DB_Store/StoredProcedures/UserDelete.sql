@@ -1,7 +1,13 @@
-DROP PROCEDURE UserDelete;
+USE `ProjectB`;
+DROP procedure IF EXISTS `UserDelete`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`UserDelete`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `UserDelete`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UserDelete`( 
 	paramUserId int,
     paramUpdateUserId int
 )
@@ -14,6 +20,6 @@ BEGIN
     WHERE UserId = paramUserId;
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.UserDelete(3, 1);
+DELIMITER ;
+;

@@ -1,6 +1,12 @@
-DROP PROCEDURE ColumnGetAllByBoardId;
+USE `ProjectB`;
+DROP procedure IF EXISTS `ColumnGetAllByBoardAndUserId`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`ColumnGetAllByBoardAndUserId`;
+;
 
 DELIMITER $$
+USE `ProjectB`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnGetAllByBoardAndUserId`( 
     paramBoardId INT,
     paramUserId INT
@@ -23,8 +29,7 @@ BEGIN
 		AND c.IsDeleted = 0
         AND b.IsDeleted = 0;
 
-END
+END$$
+
 DELIMITER ;
-
-
-CALL ColumnGetAllByBoardId(1);
+;

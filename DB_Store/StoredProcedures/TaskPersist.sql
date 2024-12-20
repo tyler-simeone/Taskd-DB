@@ -1,7 +1,13 @@
-DROP PROCEDURE TaskPersist;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TaskPersist`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TaskPersist`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TaskPersist`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskPersist`( 
     paramColumnId int,
     paramTaskName varchar(150),
     paramTaskDescription varchar(500),
@@ -13,6 +19,6 @@ BEGIN
     VALUES (paramColumnId, paramTaskName, paramTaskDescription, CURRENT_TIMESTAMP, paramCreateUserId, CURRENT_TIMESTAMP, paramCreateUserId);
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.TaskPersist(1, 'First task for column 1', 'First test task for column 1', 1);
+DELIMITER ;
+;

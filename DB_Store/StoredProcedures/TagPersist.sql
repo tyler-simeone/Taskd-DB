@@ -1,7 +1,13 @@
-DROP PROCEDURE TagPersist;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TagPersist`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TagPersist`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TagPersist`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TagPersist`( 
     paramTaskId int,
     paramTagName varchar(50),
     paramCreateUserId int
@@ -12,6 +18,6 @@ BEGIN
     VALUES (paramTaskId, paramTagName, CURRENT_TIMESTAMP, paramCreateUserId, CURRENT_TIMESTAMP, paramCreateUserId);
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.TagPersist(1, 'test tag for task 1', 1);
+DELIMITER ;
+;

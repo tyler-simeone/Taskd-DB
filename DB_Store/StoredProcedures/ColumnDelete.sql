@@ -1,4 +1,12 @@
+USE `ProjectB`;
+DROP procedure IF EXISTS `ColumnDelete`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`ColumnDelete`;
+;
+
 DELIMITER $$
+USE `ProjectB`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnDelete`( 
     paramColumnId int,
     paramUpdateUserId int
@@ -12,4 +20,6 @@ BEGIN
 	WHERE ColumnId = paramColumnId;
     
 END$$
+
 DELIMITER ;
+;

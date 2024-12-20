@@ -1,7 +1,13 @@
-DROP PROCEDURE TagGetAll;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TagGetAll`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TagGetAll`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TagGetAll`()
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TagGetAll`()
 BEGIN
 
 	SELECT TagId,
@@ -16,7 +22,6 @@ BEGIN
     WHERE IsDeleted = 0;
 
 END$$
+
 DELIMITER ;
-
-
-CALL TagGetAll();
+;

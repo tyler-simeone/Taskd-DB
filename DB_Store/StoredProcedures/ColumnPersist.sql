@@ -1,7 +1,13 @@
-DROP PROCEDURE ColumnPersist;
+USE `ProjectB`;
+DROP procedure IF EXISTS `ColumnPersist`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`ColumnPersist`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `ColumnPersist`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnPersist`( 
     paramBoardId int,
     paramColumnName varchar(150),
     paramColumnDescription varchar(500),
@@ -13,6 +19,6 @@ BEGIN
     VALUES (paramBoardId, paramColumnName, paramColumnDescription, CURRENT_TIMESTAMP, paramCreateUserId, CURRENT_TIMESTAMP, paramCreateUserId);
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.ColumnPersist(1, 'Second test column', 'Second test column created by system user', 1);
+DELIMITER ;
+;

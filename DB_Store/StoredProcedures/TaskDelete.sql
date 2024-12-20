@@ -1,7 +1,13 @@
-DROP PROCEDURE TaskDelete;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TaskDelete`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TaskDelete`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TaskDelete`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskDelete`( 
     paramTaskId int,
     paramUpdateUserId int
 )
@@ -14,6 +20,6 @@ BEGIN
 	WHERE TaskId = paramTaskId;
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.TaskDelete(3, 1);
+DELIMITER ;
+;

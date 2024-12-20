@@ -1,4 +1,12 @@
+USE `ProjectB`;
+DROP procedure IF EXISTS `ColumnUpdate`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`ColumnUpdate`;
+;
+
 DELIMITER $$
+USE `ProjectB`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnUpdate`( 
     paramColumnId int,
     paramColumnName varchar(150),
@@ -15,4 +23,6 @@ BEGIN
 	WHERE ColumnId = paramColumnId;
     
 END$$
+
 DELIMITER ;
+;

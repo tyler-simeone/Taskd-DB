@@ -1,11 +1,17 @@
-DROP PROCEDURE BoardGetOneByUserId;
+USE `ProjectB`;
+DROP procedure IF EXISTS `BoardGetByUserIdAndBoardId`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`BoardGetByUserIdAndBoardId`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `BoardGetOneByUserId`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BoardGetByUserIdAndBoardId`( 
 	paramUserId int,
     paramBoardId int
 )
-BEGIN
+BEGIN 
 
 	SELECT BoardId,
 		   UserId,
@@ -22,7 +28,6 @@ BEGIN
 		AND IsDeleted = 0;
 
 END$$
+
 DELIMITER ;
-
-
-CALL ProjectB.BoardGetOneByUserId(1, 1)
+;

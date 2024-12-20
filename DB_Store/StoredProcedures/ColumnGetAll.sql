@@ -1,7 +1,13 @@
-DROP PROCEDURE ColumnGetAll;
+USE `ProjectB`;
+DROP procedure IF EXISTS `ColumnGetAll`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`ColumnGetAll`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `ColumnGetAll`()
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnGetAll`()
 BEGIN
 
 	SELECT ColumnId,
@@ -17,6 +23,6 @@ BEGIN
     WHERE IsDeleted = 0;
 
 END$$
-DELIMITER ;
 
-CALL ProjectB.ColumnGetAll();
+DELIMITER ;
+;

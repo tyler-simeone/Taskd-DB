@@ -1,8 +1,15 @@
-DROP PROCEDURE TaskUpdate;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TaskUpdate`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TaskUpdate`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TaskUpdate`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskUpdate`( 
     paramTaskId int,
+    paramColumnId int,
     paramTaskName varchar(150),
     paramTaskDescription varchar(500),
     paramUpdateUserId int
@@ -10,13 +17,14 @@ CREATE PROCEDURE `TaskUpdate`(
 BEGIN
 
 	UPDATE Task
-    SET TaskName = paramTaskName,
+    SET ColumnId = paramColumnId,
+		TaskName = paramTaskName,
 		TaskDescription = paramTaskDescription,
         UpdateUserId = paramUpdateUserId,
         UpdateDatetime = CURRENT_TIMESTAMP()
 	WHERE TaskId = paramTaskId;
     
 END$$
-DELIMITER ;
 
-CALL ProjectB.TaskUpdate(2, 'testing first task from swagger! :)', 'this is a description!', 1);
+DELIMITER ;
+;

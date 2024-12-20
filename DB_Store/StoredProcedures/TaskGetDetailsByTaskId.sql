@@ -1,7 +1,13 @@
-DROP PROCEDURE TaskGetDetailsByTaskId;
+USE `ProjectB`;
+DROP procedure IF EXISTS `TaskGetDetailsByTaskId`;
+
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`TaskGetDetailsByTaskId`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `TaskGetDetailsByTaskId`( 
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskGetDetailsByTaskId`( 
 	paramTaskId int
 )
 BEGIN
@@ -20,7 +26,6 @@ BEGIN
 		AND IsDeleted = 0;
 
 END$$
+
 DELIMITER ;
-
-CALL TaskGetDetailsByTaskId(1);
-
+;

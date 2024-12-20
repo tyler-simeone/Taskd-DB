@@ -1,10 +1,13 @@
-DROP PROCEDURE BoardGetAllByUserId;
+USE `ProjectB`;
+DROP procedure IF EXISTS `BoardGetAll`;
 
+USE `ProjectB`;
+DROP procedure IF EXISTS `ProjectB`.`BoardGetAll`;
+;
 
 DELIMITER $$
-CREATE PROCEDURE `BoardGetAllByUserId`( 
-	paramUserId int
-)
+USE `ProjectB`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BoardGetAll`()
 BEGIN
 
 	SELECT BoardId,
@@ -17,11 +20,9 @@ BEGIN
            UpdateUserId,
            IsDeleted
     FROM Board
-    WHERE UserId = paramUserId
-		AND IsDeleted = 0;
+    WHERE IsDeleted = 0;
 
 END$$
+
 DELIMITER ;
-
-
-CALL ProjectB.BoardGetAllByUserId(2)
+;
