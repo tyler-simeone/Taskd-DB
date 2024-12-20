@@ -13,21 +13,25 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnGetAllByBoardAndUserId`(
 )
 BEGIN
 
-	SELECT ColumnId,
+	SELECT c.ColumnId,
            b.BoardId,
            b.UserId,
-           ColumnName,
-           ColumnDescription,
+           c.ColumnName,
+           COUNT(t.TaskId) as TaskCount,
+           c.ColumnDescription,
 		   c.CreateDatetime,
            c.CreateUserId,
            c.UpdateDatetime,
            c.UpdateUserId
     FROM ProjectB.Column c
     INNER JOIN ProjectB.Board b ON c.BoardId = b.BoardId
-    WHERE c.BoardId = paramBoardId
+    INNER JOIN ProjectB.Task t ON t.ColumnId = c.ColumnId
+    WHERE b.BoardId = paramBoardId
 		AND b.UserId = paramUserId
 		AND c.IsDeleted = 0
-        AND b.IsDeleted = 0;
+        AND b.IsDeleted = 0
+	GROUP BY c.ColumnId, b.BoardId, b.UserId, c.ColumnName, c.ColumnDescription, 
+			 c.CreateDatetime, c.CreateUserId, c.UpdateDatetime, c.UpdateUserId;
 
 END$$
 
