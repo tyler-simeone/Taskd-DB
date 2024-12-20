@@ -25,7 +25,7 @@ BEGIN
            c.UpdateUserId
     FROM ProjectB.Column c
     INNER JOIN ProjectB.Board b ON c.BoardId = b.BoardId
-    INNER JOIN ProjectB.Task t ON t.ColumnId = c.ColumnId
+    LEFT JOIN ProjectB.Task t ON t.ColumnId = c.ColumnId
     WHERE b.BoardId = paramBoardId
 		AND b.UserId = paramUserId
 		AND c.IsDeleted = 0
