@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `ColumnGetAllByBoardAndUserId`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`ColumnGetAllByBoardAndUserId`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`ColumnGetAllByBoardAndUserId`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnGetAllByBoardAndUserId`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `ColumnGetAllByBoardAndUserId`( 
     paramBoardId INT,
     paramUserId INT
 )
@@ -23,9 +23,9 @@ BEGIN
            c.CreateUserId,
            c.UpdateDatetime,
            c.UpdateUserId
-    FROM ProjectB.Column c
-    INNER JOIN ProjectB.Board b ON c.BoardId = b.BoardId
-    LEFT JOIN ProjectB.Task t ON t.ColumnId = c.ColumnId AND t.IsDeleted = 0
+    FROM taskd_db_dev.Column c
+    INNER JOIN taskd_db_dev.Board b ON c.BoardId = b.BoardId
+    LEFT JOIN taskd_db_dev.Task t ON t.ColumnId = c.ColumnId AND t.IsDeleted = 0
     WHERE b.BoardId = paramBoardId
 		AND b.UserId = paramUserId
 		AND c.IsDeleted = 0

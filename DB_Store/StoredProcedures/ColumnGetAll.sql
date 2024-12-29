@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `ColumnGetAll`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`ColumnGetAll`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`ColumnGetAll`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnGetAll`()
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `ColumnGetAll`()
 BEGIN
 
 	SELECT ColumnId,
@@ -19,7 +19,7 @@ BEGIN
            UpdateDatetime,
            UpdateUserId,
            IsDeleted
-    FROM ProjectB.Column
+    FROM taskd_db_dev.Column
     WHERE IsDeleted = 0;
 
 END$$

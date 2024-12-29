@@ -1,19 +1,19 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `ColumnDelete`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`ColumnDelete`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`ColumnDelete`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnDelete`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `ColumnDelete`( 
     paramColumnId int,
     paramUpdateUserId int
 )
 BEGIN
 
-	UPDATE ProjectB.Column
+	UPDATE taskd_db_dev.Column
     SET IsDeleted = 1,
         UpdateUserId = paramUpdateUserId,
         UpdateDatetime = CURRENT_TIMESTAMP()

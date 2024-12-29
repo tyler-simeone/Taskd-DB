@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `Column` (
   `ColumnId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `BoardId` INT NOT NULL,

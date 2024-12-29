@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `TaskDelete`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`TaskDelete`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TaskDelete`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskDelete`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `TaskDelete`( 
     paramTaskId int,
     paramUpdateUserId int
 )

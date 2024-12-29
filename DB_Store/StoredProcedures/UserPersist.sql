@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `UserPersist`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`UserPersist`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`UserPersist`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UserPersist`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `UserPersist`( 
 	paramEmail varchar(255),
     paramFirstName varchar(50),
     paramLastName varchar(100)

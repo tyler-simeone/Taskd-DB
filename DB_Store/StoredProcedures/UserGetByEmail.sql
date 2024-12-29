@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `UserGetByEmail`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`UserGetByEmail`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`UserGetByEmail`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UserGetByEmail`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `UserGetByEmail`( 
 	paramEmail varchar(255)
 )
 BEGIN

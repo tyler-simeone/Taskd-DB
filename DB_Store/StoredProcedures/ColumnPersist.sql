@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `ColumnPersist`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`ColumnPersist`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`ColumnPersist`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnPersist`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `ColumnPersist`( 
     paramBoardId int,
     paramColumnName varchar(150),
     paramColumnDescription varchar(500),
@@ -15,7 +15,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnPersist`(
 )
 BEGIN
 
-	INSERT INTO ProjectB.Column (BoardId, ColumnName, ColumnDescription, CreateDatetime, CreateUserId, UpdateDatetime, UpdateUserId)
+	INSERT INTO taskd_db_dev.Column (BoardId, ColumnName, ColumnDescription, CreateDatetime, CreateUserId, UpdateDatetime, UpdateUserId)
     VALUES (paramBoardId, paramColumnName, paramColumnDescription, CURRENT_TIMESTAMP, paramCreateUserId, CURRENT_TIMESTAMP, paramCreateUserId);
     
 END$$

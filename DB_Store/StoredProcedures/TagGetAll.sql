@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `TagGetAll`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`TagGetAll`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TagGetAll`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TagGetAll`()
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `TagGetAll`()
 BEGIN
 
 	SELECT TagId,

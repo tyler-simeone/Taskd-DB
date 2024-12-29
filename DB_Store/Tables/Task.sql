@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `Task` (
   `TaskId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ColumnId` INT NOT NULL,
@@ -15,4 +15,4 @@ CREATE TABLE `Task` (
   ALTER TABLE Task
   ADD CONSTRAINT fk_Task_Column_ColumnId
     FOREIGN KEY (ColumnId)
-    REFERENCES ProjectB.Column(ColumnId)
+    REFERENCES taskd_db_dev.Column(ColumnId)

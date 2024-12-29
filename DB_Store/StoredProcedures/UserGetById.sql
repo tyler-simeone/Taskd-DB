@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `UserGetById`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`UserGetById`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`UserGetById`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UserGetById`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `UserGetById`( 
 	paramUserId int
 )
 BEGIN

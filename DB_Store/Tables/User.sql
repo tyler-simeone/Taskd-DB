@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `User` (
   `UserId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Username` VARCHAR(255) NOT NULL,

@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `BoardGetAll`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`BoardGetAll`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`BoardGetAll`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `BoardGetAll`()
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `BoardGetAll`()
 BEGIN
 
 	SELECT BoardId,

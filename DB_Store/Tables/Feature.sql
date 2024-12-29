@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `Feature` (
   `FeatureId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `FeatureName` VARCHAR(150) NOT NULL,

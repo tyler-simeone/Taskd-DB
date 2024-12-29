@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `ColumnUpdate`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`ColumnUpdate`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`ColumnUpdate`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnUpdate`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `ColumnUpdate`( 
     paramColumnId int,
     paramColumnName varchar(150),
     paramColumnDescription varchar(500),
@@ -15,7 +15,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ColumnUpdate`(
 )
 BEGIN
 
-	UPDATE ProjectB.Column
+	UPDATE taskd_db_dev.Column
     SET ColumnName = paramColumnName,
 		ColumnDescription = paramColumnDescription,
         UpdateUserId = paramUpdateUserId,

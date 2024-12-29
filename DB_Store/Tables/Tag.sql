@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `Tag` (
   `TagId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `TaskId` INT NOT NULL,

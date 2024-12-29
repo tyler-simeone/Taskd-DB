@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `TaskGetAll`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`TaskGetAll`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TaskGetAll`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskGetAll`()
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `TaskGetAll`()
 BEGIN
 
 	SELECT TaskId,

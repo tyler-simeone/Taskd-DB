@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `TaskPersist`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`TaskPersist`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TaskPersist`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskPersist`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `TaskPersist`( 
     paramColumnId int,
     paramTaskName varchar(150),
     paramTaskDescription varchar(500),

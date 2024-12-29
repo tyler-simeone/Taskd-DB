@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `UserRole` (
   `UserRoleId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `UserId` INT NOT NULL,

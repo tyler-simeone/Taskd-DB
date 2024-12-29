@@ -1,4 +1,4 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 CREATE TABLE `RoleFeature` (
   `RoleFeatureId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `RoleId` INT NOT NULL,

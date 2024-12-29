@@ -1,13 +1,13 @@
-USE `ProjectB`;
+USE `taskd_db_dev`;
 DROP procedure IF EXISTS `TaskGetAllByColumnId`;
 
-USE `ProjectB`;
-DROP procedure IF EXISTS `ProjectB`.`TaskGetAllByColumnId`;
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TaskGetAllByColumnId`;
 ;
 
 DELIMITER $$
-USE `ProjectB`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TaskGetAllByColumnId`( 
+USE `taskd_db_dev`$$
+CREATE DEFINER=`admin`@`%` PROCEDURE `TaskGetAllByColumnId`( 
 	paramColumnId int
 )
 BEGIN
