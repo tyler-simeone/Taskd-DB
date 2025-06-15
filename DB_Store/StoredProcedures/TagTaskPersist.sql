@@ -1,13 +1,10 @@
 USE `taskd_db_dev`;
-DROP PROCEDURE IF EXISTS `TaskTagPersist`;
-
-USE `taskd_db_dev`;
-DROP PROCEDURE IF EXISTS `taskd_db_dev`.`TaskTagPersist`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TagTaskPersist`;
 ;
 
 DELIMITER $$
 USE `taskd_db_dev`$$
-CREATE DEFINER=`admin`@`%` PROCEDURE `TaskTagPersist`( 
+CREATE DEFINER=`admin`@`%` PROCEDURE `TagTaskPersist`( 
     paramTagId INT,
     paramTaskId INT,
     paramCreateUserId INT
@@ -34,6 +31,8 @@ BEGIN
         NULL,
         0
 	);
+    
+    SELECT LAST_INSERT_ID() AS TaskTagId;
     
 END$$
 

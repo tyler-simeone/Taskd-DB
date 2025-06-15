@@ -9,12 +9,14 @@ DELIMITER $$
 USE `taskd_db_dev`$$
 CREATE DEFINER=`admin`@`%` PROCEDURE `TagPersist`( 
     paramTagName VARCHAR(50),
+    paramBoardId INT,
     paramCreateUserId INT
 )
 BEGIN
 
 	INSERT INTO Tag 
     (
+        BoardId,
         TagName, 
         CreateDatetime, 
         CreateUserId, 
@@ -23,6 +25,7 @@ BEGIN
 	)
     VALUES 
     (
+		paramBoardId,
         paramTagName, 
         CURRENT_TIMESTAMP, 
         paramCreateUserId, 
@@ -30,8 +33,9 @@ BEGIN
         NULL
 	);
     
+    SELECT LAST_INSERT_ID() AS TagId;
+    
 END$$
 
 DELIMITER ;
 ;
-

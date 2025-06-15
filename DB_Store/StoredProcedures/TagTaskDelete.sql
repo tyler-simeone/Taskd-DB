@@ -1,11 +1,10 @@
-
 USE `taskd_db_dev`;
-DROP procedure IF EXISTS `taskd_db_dev`.`TaskTagDelete`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TagTaskDelete`;
 ;
 
 DELIMITER $$
 USE `taskd_db_dev`$$
-CREATE DEFINER=`admin`@`%` PROCEDURE `TaskTagDelete`( 
+CREATE DEFINER=`admin`@`%` PROCEDURE `TagTaskDelete`( 
     paramTaskTagId INT,
     paramUpdateUserId INT
 )

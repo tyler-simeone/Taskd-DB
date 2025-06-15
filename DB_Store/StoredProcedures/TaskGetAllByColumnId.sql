@@ -12,21 +12,24 @@ CREATE DEFINER=`admin`@`%` PROCEDURE `TaskGetAllByColumnId`(
 )
 BEGIN
 
-    SELECT  TaskId,
-            ColumnId,
-            TaskName,
-            TaskDescription,
-            CreateDatetime,
-            CreateUserId,
-            UpdateDatetime,
-            UpdateUserId,
-            IsDeleted
-    FROM Task
-    WHERE ColumnId = paramColumnId
-    AND IsDeleted = 0
-    ORDER BY UpdateDatetime;
+    SELECT  t.TaskId,
+            t.ColumnId,
+            c.BoardId,
+            t.TaskName,
+            t.TaskDescription,
+            t.CreateDatetime,
+            t.CreateUserId,
+            t.UpdateDatetime,
+            t.UpdateUserId,
+            t.IsDeleted
+    FROM Task t
+    INNER JOIN taskd_db_dev.Column c ON t.ColumnId = c.ColumnId
+    WHERE t.ColumnId = paramColumnId
+    AND t.IsDeleted = 0
+    ORDER BY t.DroppedDatetime, t.UpdateDatetime;
 
 END$$
 
 DELIMITER ;
 ;
+

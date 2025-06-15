@@ -1,25 +1,30 @@
 USE `taskd_db_dev`;
-DROP procedure IF EXISTS `TagGetAll`;
+DROP procedure IF EXISTS `TagGetAllByUserIdAndBoardId`;
 
 USE `taskd_db_dev`;
-DROP procedure IF EXISTS `taskd_db_dev`.`TagGetAll`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TagGetAllByUserIdAndBoardId`;
 ;
 
 DELIMITER $$
 USE `taskd_db_dev`$$
-CREATE DEFINER=`admin`@`%` PROCEDURE `TagGetAll`()
+CREATE DEFINER=`admin`@`%` PROCEDURE `TagGetAllByUserIdAndBoardId`(
+    paramUserId INT,
+    paramBoardId INT
+)
 BEGIN
 
-	SELECT TagId,
-		   TaskId,
-           TagName,
-		   CreateDatetime,
-           CreateUserId,
-           UpdateDatetime,
-           UpdateUserId,
-           IsDeleted
+	SELECT  TagId,
+            BoardId,
+            TagName,
+            CreateDatetime,
+            CreateUserId,
+            UpdateDatetime,
+            UpdateUserId,
+            IsDeleted
     FROM Tag
-    WHERE IsDeleted = 0;
+    WHERE CreateUserId = paramUserId
+        AND BoardId = paramBoardId
+        AND IsDeleted = 0;
 
 END$$
 
