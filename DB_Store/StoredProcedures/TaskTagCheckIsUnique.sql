@@ -1,10 +1,13 @@
 USE `taskd_db_dev`;
-DROP procedure IF EXISTS `taskd_db_dev`.`TagTaskCheckIsUnique`;
+DROP procedure IF EXISTS `TaskTagCheckIsUnique`;
+
+USE `taskd_db_dev`;
+DROP procedure IF EXISTS `taskd_db_dev`.`TaskTagCheckIsUnique`;
 ;
 
 DELIMITER $$
 USE `taskd_db_dev`$$
-CREATE DEFINER=`admin`@`%` PROCEDURE `TagTaskCheckIsUnique`( 
+CREATE DEFINER=`admin`@`%` PROCEDURE `TaskTagCheckIsUnique`( 
 	paramTagId INT,
     paramTaskId INT
 )
@@ -18,7 +21,8 @@ BEGIN
         AND IsDeleted = 0
 	LIMIT 1;
     
-END$$
+END
+$$
 
 DELIMITER ;
 ;
